@@ -2,8 +2,7 @@
 
 **G-Send** is a Python desktop application built with the PyQt5 framework that allows you to send personalized bulk emails using recipient data from an Excel sheet. It supports Gmail (via App Passwords for security), customizable email templates with Excel column placeholders, and multiple attachments. The application provides live sending statistics and a retry option for failed emails.
 
-![G-Send Screenshot](placeholder_screenshot.png)
-*(**Note**: Replace `placeholder_screenshot.png` with an actual screenshot of your application. You can take one and add it to your repository.)*
+![G-Send Screenshot](https://github.com/kmkrofficial/G-Send/blob/main/assets/readme/app_ui.png)
 
 ## Features
 
@@ -83,9 +82,8 @@ Before you begin, ensure you have the following installed:
 1.  **Run the Application:**
     Navigate to the project directory in your terminal (ensure your virtual environment is activated) and run:
     ```bash
-    python bulk_mailer_app.py
+    python mailer.py
     ```
-    (Replace `bulk_mailer_app.py` with the actual name of your main Python script if different, e.g., `g_send_app.py`.)
 
 2.  **Load Excel File:**
     *   Click the "**Browse Excel File**" button.
@@ -153,7 +151,7 @@ The application consists of two main classes:
     *   Emits signals (`progress_update`, `finished_signal`, `log_signal`) to update the GUI with statistics, completion status, and log messages.
     *   Includes basic error handling for SMTP connection, authentication, and individual email sending.
 
-*   **`BulkEmailerApp(QMainWindow)` (or `GSendApp` if you rename the class):**
+*   **`BulkEmailerApp(QMainWindow)`:**
     *   Sets up the main application window and all UI elements (input fields, buttons, labels, lists, progress bar) using PyQt5.
     *   Handles user interactions:
         *   Browsing and loading Excel files using `pandas`. (Column headers are stripped of whitespace).
@@ -178,9 +176,9 @@ You can package G-Send into a standalone executable using **PyInstaller**.
 2.  **Create a `.spec` File:**
     Navigate to your project's root directory in the terminal and run:
     ```bash
-    pyi-makespec --name GSend --windowed bulk_mailer_app.py
+    pyi-makespec --name GSend --windowed mailer.py
     ```
-    (Replace `bulk_mailer_app.py` with your main script's name if different, e.g., `g_send_app.py`.)
+    (Replace `mailer.py` with your main script's name if different, e.g., `g_send_app.py`.)
     This creates `GSend.spec`.
 
 3.  **Edit `GSend.spec`:**
